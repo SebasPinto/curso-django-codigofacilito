@@ -1,0 +1,35 @@
+{% extends 'vue_base.html'%}
+
+
+{% block content %}
+
+
+<v-app class="" id="app">
+    {% include 'common/navbar.html' %}
+    {% include 'common/messages.html' %}
+    <div class="row">
+        <div class="col">
+            <h1>Hola Mundo</h1>
+        </div>
+    </div>
+</v-app>
+
+{% endblock content %}
+
+{% block custom_js %}
+<script>
+    Vue.use(Vuetify);
+
+    var app = new Vue({
+        delimiters: ['[[', ']]'],
+        el: '#app',
+        vuetify: new Vuetify(),
+        data: {
+            message: 'Hello Vue!',
+        },
+        methods: {
+        }
+    });
+</script>
+
+{% endblock custom_js %}

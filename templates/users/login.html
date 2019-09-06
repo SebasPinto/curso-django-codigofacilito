@@ -1,0 +1,58 @@
+{% extends 'vue_base.html' %}
+
+{% block content %}
+<v-app id="app">
+    {% include 'common/navbar.html' %}
+    {% include 'common/messages.html' %}
+    <v-content>
+        <v-container fluid fill-height>
+            <v-layout align-center justify-center>
+                <v-flex xs12 sm8 md4>
+                    <v-card class="elevation-12">
+                        <v-toolbar color="blue darken-4" dark flat>
+                            <v-toolbar-title>Login form</v-toolbar-title>
+                            <v-spacer></v-spacer>
+                        </v-toolbar>
+                        <v-card-text>
+                            <v-form action="{% url 'login' %}" method="POST" id="loginForm">
+                                {% csrf_token %}
+                                <!-- Email -->
+                                <v-text-field label="Login" name="username" prepend-icon="person" type="text">
+                                </v-text-field>
+                                <!-- Password -->
+                                <v-text-field id="password" label="Password" name="password" prepend-icon="lock"
+                                    type="password"></v-text-field>
+                            </v-form>
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn type="submit" color="blue darken-4" form="loginForm" class="white--text">Login
+                            </v-btn>
+                        </v-card-actions>
+                    </v-card>
+                </v-flex>
+            </v-layout>
+        </v-container>
+    </v-content>
+</v-app>
+<!-- Default form login -->
+{% endblock %}
+
+{% block custom_js %}
+<script>
+    Vue.use(Vuetify);
+    var app = new Vue({
+        delimiters: ['[[', ']]'],
+        el: '#app',
+        vuetify: new Vuetify(),
+        data: {
+            message: 'Hello Vue!',
+        },
+        methods: {
+            debug() {
+                console.log('{{message.tags}}')
+            }
+        }
+    });
+</script>
+{% endblock %}

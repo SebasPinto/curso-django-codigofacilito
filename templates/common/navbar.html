@@ -1,0 +1,60 @@
+<div>
+	<v-app-bar color="blue darken-4" dark>
+		<v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+		<v-toolbar-title>Facilito Store</v-toolbar-title>
+
+		<div class="flex-grow-1"></div>
+
+		<v-tooltip bottom>
+			<template v-slot:activator="{ on }">
+				<v-btn icon v-on="on" href="{% url 'index'%}">
+					<v-icon>mdi-home</v-icon>
+				</v-btn>
+			</template>
+			<span>Home</span>
+		</v-tooltip>
+
+		<v-tooltip bottom>
+			<template v-slot:activator="{ on }">
+				<v-btn icon v-on="on" href="{% url 'login'%}">
+					<v-icon>mdi-account</v-icon>
+				</v-btn>
+			</template>
+			<span>Login</span>
+		</v-tooltip>
+
+		<v-tooltip bottom>
+			<template v-slot:activator="{ on }">
+				<v-btn icon v-on="on" href="{% url 'register'%}">
+					<v-icon>mdi-account-plus</v-icon>
+				</v-btn>
+			</template>
+			<span>Register</span>
+		</v-tooltip>
+
+		<v-tooltip bottom>
+			<template v-slot:activator="{ on }">
+				<v-btn icon v-on="on" href="{% url 'logout'%}">
+					<v-icon>mdi-account-arrow-right</v-icon>
+				</v-btn>
+			</template>
+			<span>Logout</span>
+		</v-tooltip>
+
+
+		<v-menu left bottom>
+			<template v-slot:activator="{ on }">
+				<v-btn icon v-on="on">
+					<v-icon>mdi-dots-vertical</v-icon>
+				</v-btn>
+			</template>
+
+			<!-- <v-list>
+				<v-list-item v-for="n in 5" :key="n" @click="() => {}">
+					<v-list-item-title>Option {{ n }}</v-list-item-title>
+				</v-list-item>
+			</v-list> -->
+		</v-menu>
+	</v-app-bar>
+</div>
