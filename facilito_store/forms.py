@@ -7,19 +7,22 @@ class RegisterForm(forms.Form):
                                 max_length=50,
                                 widget=forms.TextInput(attrs={
                                     'class': 'form-control mb-4',
-                                    'placeholder': 'User Name'
+                                    'placeholder': 'User Name',
+                                    'icon': 'person'
                                 }))
     email = forms.EmailField(required=True,
                             widget=forms.EmailInput(attrs={
                                     'class': 'form-control mb-4',
-                                    'placeholder': 'Email'
+                                    'placeholder': 'Email',
+                                    'icon': 'email'
                                 }))
     password=forms.CharField(required = True,
                                 min_length = 8,
                                 max_length = 12,
                                 widget=forms.PasswordInput(attrs={
                                     'class': 'form-control mb-4',
-                                    'placeholder': 'Password'
+                                    'placeholder': 'Password',
+                                    'icon': 'lock'
                                 }))
 
     password2=forms.CharField(required = True,
@@ -27,7 +30,8 @@ class RegisterForm(forms.Form):
                                 max_length = 12,
                                 widget=forms.PasswordInput(attrs={
                                     'class': 'form-control',
-                                    'placeholder': 'Repeat Password'
+                                    'placeholder': 'Repeat Password',
+                                    'icon': 'lock'
                                 }))
 
 

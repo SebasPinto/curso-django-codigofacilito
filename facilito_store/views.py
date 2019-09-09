@@ -40,7 +40,11 @@ def logout_view(request):
 def register(request):
     form = RegisterForm(request.POST or None)
 
+    print(request.POST)
+    print(form.is_valid())
+
     if request.method == 'POST' and form.is_valid():
+        print('entre a la validacion')
         username = form.cleaned_data.get('username')
         email = form.cleaned_data.get('email')
         password = form.cleaned_data.get('password')
